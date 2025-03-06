@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operaciones Lógicas con Casillas de Verificación</title>
+    <link rel="stylesheet" href="style.css"> <!-- Enlace al archivo CSS -->
+    <script>
+        function calcularOperaciones() {
+            // Obtener los valores de las casillas de verificación
+            var casilla1 = document.getElementById("casilla1").checked;
+            var casilla2 = document.getElementById("casilla2").checked;
+
+            // Operación AND
+            var resultadoAND = casilla1 && casilla2;
+
+            // Operación OR
+            var resultadoOR = casilla1 || casilla2;
+
+            // Operación XOR
+            var resultadoXOR = (casilla1 || casilla2) && !(casilla1 && casilla2);
+
+            // Mostrar los resultados
+            document.getElementById("resultadoAND").innerText = "AND: " + resultadoAND;
+            document.getElementById("resultadoOR").innerText = "OR: " + resultadoOR;
+            document.getElementById("resultadoXOR").innerText = "XOR: " + resultadoXOR;
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Operaciones Lógicas</h1>
+        
+        <form>
+            <label class="label-checkbox">
+                <input type="checkbox" id="casilla1" onchange="calcularOperaciones()"> 0
+            </label>
+            <label class="label-checkbox">
+                <input type="checkbox" id="casilla2" onchange="calcularOperaciones()"> 1
+            </label>
+        </form>
+
+        <h2>Resultados:</h2>
+        <p id="resultadoAND" class="resultado">AND: false</p>
+        <p id="resultadoOR" class="resultado">OR: false</p>
+        <p id="resultadoXOR" class="resultado">XOR: false</p>
+    </div>
+</body>
+</html>
